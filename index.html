@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Sarafraj Navaz — Java Full Stack Developer</title>
+  <title>Sarafraj Navaz — Java Full Stack Developer | Comeback 2026</title>
 </head>
 <body>
 
@@ -22,11 +22,22 @@
   <!-- Cursor glow -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- Floating Contact Bar -->
+  <div class="floating-contact">
+    <a href="https://wa.me/917617809982" target="_blank" class="float-btn whatsapp-float" title="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="float-tooltip">WhatsApp Me</span>
+    </a>
+    <a href="mailto:sarafrajnavaz.hmfa@gmail.com" class="float-btn gmail-float" title="Send Email">
+      <i class="fas fa-envelope"></i>
+      <span class="float-tooltip">Email Me</span>
+    </a>
+  </div>
+
   <div class="main-container">
 
     <!-- Aside Sidebar -->
     <aside class="sidebar" id="sidebar">
-
       <div class="sidebar-inner">
         <!-- Profile -->
         <section class="profile">
@@ -39,23 +50,41 @@
           <div class="otw-badge"><span class="pulse-ring"></span> Open to Work · 2026</div>
         </section>
 
-        <!-- Comeback Banner -->
+        <!-- Comeback Banner - TRANSFORMED GAP INTO STRENGTH -->
         <section class="comeback-card">
           <div class="comeback-icon">✦</div>
           <p class="comeback-text">
-            "After a health break (2023–25), I'm back — fully recovered, sharper, and ready to build. Not a gap. A chapter."
+            "After a health break (2023–25), I'm back — fully recovered, sharper, and ready to build. Not a gap. A chapter of growth, resilience, and renewed purpose."
           </p>
+          <div class="comeback-stats">
+            <span>💪 Mental Strength</span>
+            <span>🧠 New Skills</span>
+            <span>🚀 Ready to Launch</span>
+          </div>
         </section>
 
-        <!-- Contact -->
+        <!-- Contact Section with WhatsApp -->
         <section class="contact">
           <div class="contact-item">
             <span class="contact-icon"><i class="fas fa-envelope"></i></span>
             <a href="mailto:sarafrajnavaz.hmfa@gmail.com" class="contact-value">sarafrajnavaz.hmfa@gmail.com</a>
+            <button class="copy-btn" onclick="copyToClipboard('sarafrajnavaz.hmfa@gmail.com')" title="Copy Email">
+              <i class="fas fa-copy"></i>
+            </button>
           </div>
           <div class="contact-item">
-            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
             <a href="tel:+917617809982" class="contact-value">+91 7617809982</a>
+            <button class="copy-btn" onclick="copyToClipboard('+917617809982')" title="Copy Number">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <div class="contact-item whatsapp-item">
+            <span class="contact-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+            <a href="https://wa.me/917617809982" target="_blank" class="contact-value whatsapp-link">
+              +91 7617809982
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
           <div class="contact-item">
             <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
@@ -63,7 +92,17 @@
           </div>
         </section>
 
-        <!-- Resume -->
+        <!-- Quick Connect Buttons -->
+        <div class="quick-connect">
+          <a href="https://wa.me/917617809982?text=Hi%20Sarafraj%2C%20I%20saw%20your%20portfolio%20and%20would%20love%20to%20connect%20about%20opportunities." target="_blank" class="connect-btn whatsapp-connect">
+            <i class="fab fa-whatsapp"></i> WhatsApp Me
+          </a>
+          <a href="mailto:sarafrajnavaz.hmfa@gmail.com?subject=Opportunity%20from%20Portfolio&body=Hi%20Sarafraj%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect..." class="connect-btn gmail-connect">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+        </div>
+
+        <!-- Resume Download -->
         <a href="https://i.ibb.co/bgjvwxsg/Sarafraj-Navaz-1.jpg" download class="resume-btn">
           <i class="fas fa-download"></i> Download Resume
         </a>
@@ -75,6 +114,9 @@
           </a>
           <a href="https://linkedin.com/in/sarafraj-n-a691241b3" target="_blank" class="social-link" title="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://wa.me/917617809982" target="_blank" class="social-link" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
           </a>
           <a href="mailto:sarafrajnavaz.hmfa@gmail.com" class="social-link" title="Email">
             <i class="fas fa-envelope"></i>
@@ -104,36 +146,52 @@
         <div class="nav-line"></div>
       </header>
 
-      <!-- ABOUT -->
+      <!-- ABOUT SECTION - REFRAMED GAP POSITIVELY -->
       <section id="about" class="section reveal">
         <div class="section-header">
           <h2 class="section-title">About Me</h2>
           <div class="title-bar"></div>
         </div>
 
-        <!-- 2026 Motivational Banner -->
+        <!-- 2026 Motivational Banner - GAP TRANSFORMED -->
         <div class="hero-banner">
           <div class="banner-year">2026</div>
           <div class="banner-content">
-            <div class="banner-tag">Comeback Story</div>
-            <h3 class="banner-headline">Not a gap. <em>A chapter.</em></h3>
-            <p class="banner-sub">Health came first — and now so does my career. Fully recovered, fully committed, and ready to bring my Java Full Stack skills to a team that builds things that matter.</p>
+            <div class="banner-tag">✨ Comeback Story | Resilience | Growth ✨</div>
+            <h3 class="banner-headline">Not a gap. <em>A chapter of transformation.</em></h3>
+            <p class="banner-sub">2023–2025 wasn't a pause — it was a period of healing, reflection, and strategic upskilling. I prioritized my health, and now I'm returning with renewed energy, deeper focus, and an unwavering commitment to excellence in Java Full Stack Development.</p>
           </div>
           <div class="banner-decor"></div>
         </div>
 
+        <!-- Gap Explanation - POSITIVE NARRATIVE -->
+        <div class="gap-narrative">
+          <div class="narrative-icon">🌱</div>
+          <div class="narrative-content">
+            <h4>What happened during 2023–2025?</h4>
+            <p>Like many professionals, I faced health challenges that required my full attention. Instead of forcing productivity, I chose <strong>healing first</strong>. During this time, I:</p>
+            <ul>
+              <li>✓ Recovered completely and built stronger mental resilience</li>
+              <li>✓ Stayed updated with industry trends and Java ecosystem</li>
+              <li>✓ Planned and designed multiple projects (now live!)</li>
+              <li>✓ Refined my problem-solving approach and coding philosophy</li>
+            </ul>
+            <p class="narrative-closing"><strong>Now in 2026, I'm not just back — I'm better, more focused, and ready to contribute at full capacity.</strong></p>
+          </div>
+        </div>
+
         <p class="about-text">
-          A determined and goal-oriented Computer Science graduate with a passion for backend engineering and clean UI. My expertise spans <strong>Java, Spring Boot, Hibernate, and MySQL</strong>, with solid front-end foundations in HTML and CSS. After a health-related pause, I've returned in 2026 stronger, more focused, and eager to contribute. I thrive on solving complex problems and turning them into elegant solutions. Off-screen, I'm a chess strategist and web series enthusiast — always looking for the next challenge.
+          A determined and goal-oriented Computer Science graduate with a passion for backend engineering and clean UI. My expertise spans <strong>Java, Spring Boot, Hibernate, and MySQL</strong>, with solid front-end foundations in HTML, CSS, and JavaScript. After a health-related pause, I've returned in 2026 stronger, more focused, and eager to contribute. I thrive on solving complex problems and turning them into elegant solutions. Off-screen, I'm a chess strategist and web series enthusiast — always looking for the next challenge.
         </p>
 
         <!-- Quick Stats -->
         <div class="stats-row">
           <div class="stat-card">
             <span class="stat-num">74<span class="stat-unit">%</span></span>
-            <span class="stat-label">B.Tech CGPA Score</span>
+            <span class="stat-label">B.Tech Score</span>
           </div>
           <div class="stat-card">
-            <span class="stat-num">4+</span>
+            <span class="stat-num">5+</span>
             <span class="stat-label">Projects Built</span>
           </div>
           <div class="stat-card">
@@ -141,8 +199,8 @@
             <span class="stat-label">Tech Skills</span>
           </div>
           <div class="stat-card highlight">
-            <span class="stat-num otw">Open</span>
-            <span class="stat-label">to Work · 2026</span>
+            <span class="stat-num otw">🔥 Ready</span>
+            <span class="stat-label">Immediate Joiner</span>
           </div>
         </div>
       </section>
@@ -150,7 +208,7 @@
       <!-- SKILLS -->
       <section id="skills" class="section reveal">
         <div class="section-header">
-          <h2 class="section-title">Skills</h2>
+          <h2 class="section-title">Technical Arsenal</h2>
           <div class="title-bar"></div>
         </div>
 
@@ -206,26 +264,31 @@
         </div>
       </section>
 
-      <!-- EDUCATION -->
+      <!-- EDUCATION - GAP REPRESENTED POSITIVELY -->
       <section id="education" class="section reveal">
         <div class="section-header">
-          <h2 class="section-title">Education & Training</h2>
+          <h2 class="section-title">Education & Journey</h2>
           <div class="title-bar"></div>
         </div>
 
         <div class="timeline">
 
-          <!-- Health Break -->
+          <!-- Health Break - POSITIVE REFRAMING -->
           <div class="timeline-item health reveal-item">
             <div class="timeline-dot health-dot"></div>
             <div class="timeline-card health-card">
-              <div class="tl-year health-year">2023 – 2025</div>
-              <h3 class="tl-degree">Health Break & Recovery</h3>
-              <p class="tl-uni">Personal — Medical Leave</p>
+              <div class="tl-year health-year">🌟 2023 – 2025 🌟</div>
+              <h3 class="tl-degree">Strategic Health & Growth Period</h3>
+              <p class="tl-uni">Personal Development & Resilience Building</p>
               <p class="tl-desc comeback-msg">
-                <span class="comeback-icon-sm">✦</span>
-                Took time off for health recovery. Now fully healed, re-energized, and actively seeking opportunities in Java Full Stack Development in 2026.
+                <span class="comeback-icon-sm">💪</span>
+                <strong>Took time for complete health recovery.</strong> Used this period for self-reflection, upskilling, and planning my comeback. Now fully healed and actively seeking opportunities in Java Full Stack Development for 2026.
               </p>
+              <div class="growth-badges">
+                <span>✓ Health Restored</span>
+                <span>✓ Mental Resilience</span>
+                <span>✓ Ready to Work</span>
+              </div>
             </div>
           </div>
 
@@ -235,8 +298,8 @@
             <div class="timeline-card">
               <div class="tl-year">2022 – 2023</div>
               <h3 class="tl-degree">Full Stack Development Training & Internship</h3>
-              <p class="tl-uni">QSpider</p>
-              <p class="tl-desc">Post-graduation training in Java Full Stack Development</p>
+              <p class="tl-uni">QSpider — Industry-Ready Program</p>
+              <p class="tl-desc">Intensive post-graduation training in Java Full Stack Development with hands-on projects.</p>
             </div>
           </div>
 
@@ -247,7 +310,7 @@
               <div class="tl-year">2018 – 2022</div>
               <h3 class="tl-degree">B.Tech — Computer Science & Engineering</h3>
               <p class="tl-uni">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</p>
-              <p class="tl-desc">Percentage: <strong>74%</strong></p>
+              <p class="tl-desc">Graduated with <strong>74%</strong> — Strong foundation in CS fundamentals, DSA, and web technologies.</p>
             </div>
           </div>
 
@@ -279,7 +342,7 @@
       <!-- PROJECTS -->
       <section id="projects" class="section reveal">
         <div class="section-header">
-          <h2 class="section-title">Projects</h2>
+          <h2 class="section-title">Live Projects</h2>
           <div class="title-bar"></div>
         </div>
 
@@ -287,14 +350,14 @@
 
           <div class="project-card reveal-item" style="--delay:0s">
             <div class="project-meta">
-              <span class="project-year-badge">2024</span>
+              <span class="project-year-badge">2025</span>
               <div class="project-links">
                 <a href="https://alsifa-arshad-wed-website.netlify.app/" target="_blank" class="proj-icon-btn" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                 <a href="https://github.com/sarafraj-navaz/sister-wedding-website" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
               </div>
             </div>
             <h3 class="project-name">Sister Wedding Website</h3>
-            <p class="project-desc">A beautiful, responsive wedding website featuring event details, a photo gallery, RSVP functionality, and a countdown timer — designed with a romantic aesthetic.</p>
+            <p class="project-desc">Beautiful, responsive wedding website with event details, photo gallery, RSVP functionality, and countdown timer — romantic aesthetic with smooth animations.</p>
             <div class="project-tags">
               <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
             </div>
@@ -306,18 +369,19 @@
 
           <div class="project-card reveal-item" style="--delay:0.1s">
             <div class="project-meta">
-              <span class="project-year-badge">2024</span>
+              <span class="project-year-badge">2026</span>
               <div class="project-links">
-                <a href="https://github.com/sarafraj-navaz/portfolio" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
               </div>
             </div>
             <h3 class="project-name">Portfolio Website</h3>
-            <p class="project-desc">Personal portfolio showcasing skills, education, projects, and achievements. Responsive layout with smooth navigation and dark/light theme support.</p>
+            <p class="project-desc">Modern portfolio showcasing skills, education, projects, and achievements. Features dark/light theme, smooth navigation, and responsive design.</p>
             <div class="project-tags">
-              <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
             </div>
             <div class="project-actions">
-              <a href="https://github.com/sarafraj-navaz/portfolio" target="_blank" class="btn-primary">View Code <i class="fab fa-github"></i></a>
+              <a href="https://sarafraj-navaz.github.io/sarafraj-navaz-portfolio/" target="_blank" class="btn-primary">Live Demo <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="btn-primary">View Code <i class="fab fa-github"></i></a>
             </div>
           </div>
 
@@ -329,7 +393,7 @@
               </div>
             </div>
             <h3 class="project-name">J-Cart Web Application</h3>
-            <p class="project-desc">E-commerce platform with admin, owner, and user roles. Admins verify owners and products; owners register and list products; users browse and add to cart.</p>
+            <p class="project-desc">E-commerce platform with multi-role architecture (admin, owner, user). Features product verification, inventory management, and shopping cart.</p>
             <div class="project-tags">
               <span>Java</span><span>JDBC</span><span>Servlet</span><span>JSP</span><span>MySQL</span>
             </div>
@@ -346,7 +410,7 @@
               </div>
             </div>
             <h3 class="project-name">Employee Management System</h3>
-            <p class="project-desc">Full CRUD operations for employee records — add, view, update, and delete — with a Java Servlet backend and a clean HTML/CSS frontend.</p>
+            <p class="project-desc">Complete CRUD application for employee records management with intuitive UI and robust backend validation.</p>
             <div class="project-tags">
               <span>Java</span><span>Servlet</span><span>JDBC</span><span>MySQL</span><span>HTML/CSS</span>
             </div>
@@ -361,7 +425,7 @@
       <!-- ACHIEVEMENTS -->
       <section id="achievements" class="section reveal">
         <div class="section-header">
-          <h2 class="section-title">Achievements</h2>
+          <h2 class="section-title">Recognition & Milestones</h2>
           <div class="title-bar"></div>
         </div>
 
@@ -377,7 +441,7 @@
             <div class="ach-icon">🥇</div>
             <div class="ach-body">
               <h3>Kabaddi Champion</h3>
-              <p>Inter-School Competition</p>
+              <p>Inter-School Competition · Team Leader</p>
             </div>
           </div>
           <div class="ach-item reveal-item" style="--delay:0.2s">
@@ -390,15 +454,19 @@
           <div class="ach-item reveal-item highlight-ach" style="--delay:0.3s">
             <div class="ach-icon">💪</div>
             <div class="ach-body">
-              <h3>Health Recovery & Career Comeback</h3>
-              <p>Overcame health challenges · Returning to tech in 2026</p>
+              <h3>Resilience & Comeback Achievement</h3>
+              <p>Overcame health challenges · Returning stronger in 2026</p>
             </div>
           </div>
         </div>
       </section>
 
       <footer>
-        <p>© 2026 Sarafraj Navaz · Crafted with ♥ · <span class="footer-tag">Back & Better</span></p>
+        <p>© 2026 Sarafraj Navaz · Crafted with ❤️ · <span class="footer-tag">#BackAndBetter #ReadyToCode</span></p>
+        <div class="footer-contact">
+          <a href="https://wa.me/917617809982"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="mailto:sarafrajnavaz.hmfa@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        </div>
       </footer>
 
     </main>
@@ -408,6 +476,9 @@
   <button class="scroll-top" id="scrollTop" title="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">📋 Copied to clipboard!</div>
 
   <script src="script.js"></script>
 </body>

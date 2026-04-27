@@ -1,20 +1,22 @@
-/* ─── LOADING ─── */
+// ─── LOADING SCREEN ───
 window.addEventListener('load', () => {
   setTimeout(() => {
-    document.getElementById('loading').classList.add('hidden');
-    // Trigger initial reveals
+    const loading = document.getElementById('loading');
+    if (loading) loading.classList.add('hidden');
     revealOnScroll();
   }, 1400);
 });
 
-/* ─── CURSOR GLOW ─── */
+// ─── CURSOR GLOW ───
 const glow = document.getElementById('cursorGlow');
-document.addEventListener('mousemove', e => {
-  glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
-});
+if (glow) {
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}
 
-/* ─── THEME TOGGLE ─── */
+// ─── THEME TOGGLE ───
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const themeLabel = document.getElementById('themeLabel');
@@ -22,25 +24,27 @@ const themeLabel = document.getElementById('themeLabel');
 const savedTheme = localStorage.getItem('theme') || 'dark';
 applyTheme(savedTheme);
 
-themeToggle.addEventListener('click', () => {
-  const current = document.body.classList.contains('light-theme') ? 'light' : 'dark';
-  const next = current === 'light' ? 'dark' : 'light';
-  applyTheme(next);
-  localStorage.setItem('theme', next);
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+}
 
 function applyTheme(theme) {
   document.body.classList.toggle('light-theme', theme === 'light');
   if (theme === 'light') {
-    themeIcon.className = 'fas fa-sun';
-    themeLabel.textContent = 'Light Mode';
+    if (themeIcon) themeIcon.className = 'fas fa-sun';
+    if (themeLabel) themeLabel.textContent = 'Light Mode';
   } else {
-    themeIcon.className = 'fas fa-moon';
-    themeLabel.textContent = 'Dark Mode';
+    if (themeIcon) themeIcon.className = 'fas fa-moon';
+    if (themeLabel) themeLabel.textContent = 'Dark Mode';
   }
 }
 
-/* ─── SMOOTH NAV SCROLL ─── */
+// ─── SMOOTH NAV SCROLL ───
 document.querySelectorAll('.nav-link, a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const href = link.getAttribute('href');
@@ -51,18 +55,24 @@ document.querySelectorAll('.nav-link, a[href^="#"]').forEach(link => {
       const offset = 80;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
+      
+      // Update active state
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
     }
   });
 });
 
-/* ─── ACTIVE NAV ON SCROLL ─── */
+// ─── ACTIVE NAV ON SCROLL ───
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
 function updateNav() {
   let current = '';
   sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+    if (window.scrollY >= sec.offsetTop - 120) {
+      current = sec.getAttribute('id');
+    }
   });
   navLinks.forEach(link => {
     link.classList.remove('active');
@@ -70,7 +80,7 @@ function updateNav() {
   });
 }
 
-/* ─── SCROLL REVEAL ─── */
+// ─── SCROLL REVEAL ───
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -85,36 +95,113 @@ function revealOnScroll() {
   });
 }
 
-/* ─── SCROLL TO TOP ─── */
+// ─── SCROLL TO TOP ───
 const scrollTopBtn = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', () => {
   updateNav();
-  scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+  if (scrollTopBtn) {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+  }
 });
 
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ─── COPY TO CLIPBOARD FUNCTION ───
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(`📋 Copied: ${text}`);
+  }).catch(() => {
+    showToast('Failed to copy');
+  });
+}
+
+// ─── TOAST NOTIFICATION ───
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  
+  toast.textContent = message;
+  toast.classList.add('show');
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
+// ─── MAKE COPY BUTTONS WORK ───
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const parent = btn.closest('.contact-item');
+    const valueElement = parent.querySelector('.contact-value');
+    if (valueElement) {
+      const textToCopy = valueElement.textContent.trim().replace(/[^\d+@a-z.]/gi, '');
+      copyToClipboard(textToCopy);
+    }
+  });
 });
 
-/* ─── SKILL HOVER TOOLTIP ─── */
+// ─── SKILL HOVER EFFECT ───
 document.querySelectorAll('.skill-item').forEach(item => {
   item.addEventListener('mouseenter', () => {
     item.style.setProperty('--hover', '1');
   });
 });
 
-/* ─── TYPING EFFECT on banner headline ─── */
+// ─── BANNER ANIMATION ───
 window.addEventListener('load', () => {
   setTimeout(() => {
     const headline = document.querySelector('.banner-headline');
-    if (!headline) return;
-    headline.style.opacity = '0';
-    headline.style.transform = 'translateY(12px)';
-    headline.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    setTimeout(() => {
-      headline.style.opacity = '1';
-      headline.style.transform = 'translateY(0)';
-    }, 300);
+    if (headline) {
+      headline.style.opacity = '0';
+      headline.style.transform = 'translateY(12px)';
+      headline.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      setTimeout(() => {
+        headline.style.opacity = '1';
+        headline.style.transform = 'translateY(0)';
+      }, 300);
+    }
   }, 1500);
 });
+
+// ─── PRELOADER WITH PROGRESS ───
+let progress = 0;
+const loadFill = document.querySelector('.load-fill');
+if (loadFill) {
+  const interval = setInterval(() => {
+    progress += Math.random() * 15;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+    }
+    loadFill.style.width = progress + '%';
+  }, 100);
+}
+
+// ─── ADD WHATSAPP CLICK TRACKING (Optional Analytics) ───
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+  link.addEventListener('click', () => {
+    console.log('WhatsApp clicked - Contact initiated');
+    // You can add analytics tracking here
+  });
+});
+
+// ─── ADD EMAIL CLICK TRACKING ───
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+  link.addEventListener('click', () => {
+    console.log('Email clicked - Contact initiated');
+    // You can add analytics tracking here
+  });
+});
+
+console.log('Portfolio loaded — Back & Better in 2026! 🚀');
