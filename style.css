@@ -597,7 +597,7 @@ body {
 .top-nav {
   margin-bottom: 48px;
   position: sticky;
-  top: 80px;
+  top: 0px;
   z-index: 10;
   background: var(--surface);
   padding: 16px 0;
