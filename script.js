@@ -4,6 +4,8 @@ window.addEventListener('load', () => {
     const loading = document.getElementById('loading');
     if (loading) loading.classList.add('hidden');
     revealOnScroll();
+    startTypingAnimation();
+    animateProgressBars();
   }, 1400);
 });
 
@@ -13,6 +15,56 @@ if (glow) {
   document.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
+  });
+}
+
+// ─── TYPING ANIMATION FOR ROLE ───
+function startTypingAnimation() {
+  const roles = ["Java Full Stack Developer", "Spring Boot Specialist", "Problem Solver", "Backend Engineer", "Ready to Code"];
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const roleElement = document.getElementById('typingRole');
+  if (!roleElement) return;
+  
+  function typeEffect() {
+    const currentRole = roles[index];
+    if (isDeleting) {
+      roleElement.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      roleElement.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000);
+      return;
+    }
+    
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      index = (index + 1) % roles.length;
+      setTimeout(typeEffect, 500);
+      return;
+    }
+    
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+  
+  setTimeout(typeEffect, 500);
+}
+
+// ─── ANIMATE PROGRESS BARS ───
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-fill');
+  progressBars.forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 100);
   });
 }
 
@@ -145,9 +197,59 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     const parent = btn.closest('.contact-item');
     const valueElement = parent.querySelector('.contact-value');
     if (valueElement) {
-      const textToCopy = valueElement.textContent.trim().replace(/[^\d+@a-z.]/gi, '');
+      let textToCopy = valueElement.textContent.trim();
+      textToCopy = textToCopy.replace(/[^\d+@a-z.]/gi, '');
       copyToClipboard(textToCopy);
     }
+  });
+});
+
+// ─── CLOSE BANNER ───
+const closeBanner = document.getElementById('closeBanner');
+const returnBanner = document.getElementById('returnBanner');
+
+if (closeBanner && returnBanner) {
+  closeBanner.addEventListener('click', () => {
+    returnBanner.style.display = 'none';
+  });
+}
+
+// ─── VISITOR COUNTER ───
+function updateVisitorCounter() {
+  let views = localStorage.getItem('portfolioViews');
+  if (views === null) {
+    views = 1;
+  } else {
+    views = parseInt(views) + 1;
+  }
+  localStorage.setItem('portfolioViews', views);
+  const counterElement = document.getElementById('viewCount');
+  if (counterElement) {
+    counterElement.textContent = views;
+  }
+}
+updateVisitorCounter();
+
+// ─── WHATSAPP CLICK TRACKING ───
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+  link.addEventListener('click', () => {
+    console.log('📱 WhatsApp clicked - Contact initiated at ' + new Date().toISOString());
+    // You can add Google Analytics tracking here
+  });
+});
+
+// ─── EMAIL CLICK TRACKING ───
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+  link.addEventListener('click', () => {
+    console.log('📧 Email clicked - Contact initiated at ' + new Date().toISOString());
+    // You can add Google Analytics tracking here
+  });
+});
+
+// ─── RESUME DOWNLOAD TRACKING ───
+document.querySelectorAll('.resume-btn, .pdf-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    console.log('📄 Resume/PDF downloaded at ' + new Date().toISOString());
   });
 });
 
@@ -188,20 +290,7 @@ if (loadFill) {
   }, 100);
 }
 
-// ─── ADD WHATSAPP CLICK TRACKING (Optional Analytics) ───
-document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-  link.addEventListener('click', () => {
-    console.log('WhatsApp clicked - Contact initiated');
-    // You can add analytics tracking here
-  });
-});
-
-// ─── ADD EMAIL CLICK TRACKING ───
-document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-  link.addEventListener('click', () => {
-    console.log('Email clicked - Contact initiated');
-    // You can add analytics tracking here
-  });
-});
-
-console.log('Portfolio loaded — Back & Better in 2026! 🚀');
+// ─── PRINT FUNCTIONALITY ───
+console.log('🚀 Portfolio loaded — Back & Better in 2026!');
+console.log('📱 WhatsApp: +91 7617809982');
+console.log('📧 Email: sarafrajnavaz.hmfa@gmail.com');
