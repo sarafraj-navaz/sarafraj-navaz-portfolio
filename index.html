@@ -9,22 +9,27 @@
   <meta property="og:title" content="Sarafraj Navaz - Java Full Stack Developer">
   <meta property="og:description" content="Back & Better in 2026 - Available for immediate opportunities">
   <meta property="og:type" content="portfolio">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Resource hints: open connections to external hosts early so the
+       browser isn't doing DNS+TLS handshakes one-by-one during render -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://simpleicons.org">
+  <link rel="dns-prefetch" href="https://cdn.iconscout.com">
+  <link rel="dns-prefetch" href="https://icon.icepanel.io">
+
+  <!-- Font Awesome loaded non-render-blocking: browser fetches it in the
+       background instead of pausing first paint to download it -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Sarafraj Navaz — Java Full Stack Developer | Available 2026</title>
 </head>
 <body>
-
-  <!-- Loading Screen -->
-  <div class="loading" id="loading">
-    <div class="load-inner">
-      <div class="load-logo">SN</div>
-      <div class="load-bar"><div class="load-fill"></div></div>
-      <p class="load-text">Loading portfolio...</p>
-    </div>
-  </div>
 
   <!-- Cursor glow -->
   <div class="cursor-glow" id="cursorGlow"></div>
@@ -59,7 +64,7 @@
         <!-- Profile -->
         <section class="profile">
           <div class="avatar-ring">
-            <img src="https://i.ibb.co/J9LsccK/Engg-Sarafraj-navaz.png" alt="Sarafraj Navaz">
+            <img src="https://i.ibb.co/J9LsccK/Engg-Sarafraj-navaz.png" alt="Sarafraj Navaz" width="130" height="130" fetchpriority="high" decoding="async">
             <div class="status-dot" title="Available for Work"></div>
           </div>
           <h1 class="profile-name">Sarafraj Navaz</h1>
@@ -121,12 +126,12 @@
 
         <!-- Resume Download with PDF Option -->
         <div class="resume-options">
-          <a href="https://i.ibb.co/bgjvwxsg/Sarafraj-Navaz-1.jpg" download class="resume-btn">
+          <a href="Sarafraj-Navaz-Resume.pdf" download="Sarafraj-Navaz-Resume.pdf" class="resume-btn">
             <i class="fas fa-download"></i> Download Resume
           </a>
-          <button onclick="window.print()" class="pdf-btn">
-            <i class="fas fa-file-pdf"></i> Save as PDF
-          </button>
+          <a href="Sarafraj-Navaz-Resume.pdf" target="_blank" class="pdf-btn">
+            <i class="fas fa-file-pdf"></i> View PDF
+          </a>
         </div>
 
         <!-- Socials -->
@@ -281,51 +286,51 @@
 
         <div class="skills-grid">
           <div class="skill-item" style="--delay:0s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/html5.svg" alt="HTML5"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/html5.svg" alt="HTML5" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>HTML5</span>
           </div>
           <div class="skill-item" style="--delay:0.05s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/css.svg" alt="CSS3"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/css.svg" alt="CSS3" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>CSS3</span>
           </div>
           <div class="skill-item" style="--delay:0.1s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/javascript.svg" alt="JS"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/javascript.svg" alt="JS" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>JavaScript</span>
           </div>
           <div class="skill-item" style="--delay:0.15s">
-            <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-1982840.png?f=webp&w=512" alt="Java"></div>
+            <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-1982840.png?f=webp&w=512" alt="Java" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Java</span>
           </div>
           <div class="skill-item" style="--delay:0.2s">
-            <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-1982840.png?f=webp&w=512" alt="J2EE"></div>
+            <div class="skill-icon"><img src="https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-1982840.png?f=webp&w=512" alt="J2EE" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>J2EE</span>
           </div>
           <div class="skill-item" style="--delay:0.25s">
-            <div class="skill-icon"><img src="https://icon.icepanel.io/Technology/svg/Hibernate.svg" alt="Hibernate"></div>
+            <div class="skill-icon"><img src="https://icon.icepanel.io/Technology/svg/Hibernate.svg" alt="Hibernate" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Hibernate</span>
           </div>
           <div class="skill-item" style="--delay:0.3s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/spring.svg" alt="Spring"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/spring.svg" alt="Spring" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Spring</span>
           </div>
           <div class="skill-item" style="--delay:0.35s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/springboot.svg" alt="Spring Boot"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/springboot.svg" alt="Spring Boot" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Spring Boot</span>
           </div>
           <div class="skill-item" style="--delay:0.4s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/mysql.svg" alt="MySQL"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/mysql.svg" alt="MySQL" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>MySQL</span>
           </div>
           <div class="skill-item" style="--delay:0.45s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/postgresql.svg" alt="SQL"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/postgresql.svg" alt="SQL" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>SQL</span>
           </div>
           <div class="skill-item" style="--delay:0.5s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/git.svg" alt="Git"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/git.svg" alt="Git" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Git</span>
           </div>
           <div class="skill-item" style="--delay:0.55s">
-            <div class="skill-icon"><img src="https://simpleicons.org/icons/eclipseide.svg" alt="Eclipse"></div>
+            <div class="skill-icon"><img src="https://simpleicons.org/icons/eclipseide.svg" alt="Eclipse" width="46" height="46" loading="lazy" decoding="async"></div>
             <span>Eclipse</span>
           </div>
         </div>
@@ -429,6 +434,41 @@
 
         <div class="projects-grid">
 
+          <div class="project-card reveal-item" style="--delay:0.2s">
+            <div class="project-meta">
+              <span class="project-year-badge">2026</span>
+              <div class="project-links">
+                <a href="https://jcart-ecommerce.onrender.com/app-home.jsp" target="_blank" class="proj-icon-btn" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/sarafraj-navaz/jcart-ecommerce-platform" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-name">J-Cart — Rugs & Carpets Marketplace</h3>
+            <p class="project-desc">Multi-role e-commerce platform (Admin, Product Owner, Buyer) for handcrafted carpets, with an admin product-verification workflow, WhatsApp-integrated ordering, and an animated navy-and-gold UI with 3D card interactions. <strong>Impact:</strong> Reduced manual product-verification effort by 60%.</p>
+            <div class="project-tags">
+              <span>Java</span><span>JDBC</span><span>Servlet</span><span>JSP</span><span>MySQL</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://jcart-ecommerce.onrender.com/app-home.jsp" target="_blank" class="btn-primary">Live Demo <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/sarafraj-navaz/jcart-ecommerce-platform" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="project-card reveal-item" style="--delay:0.1s">
+            <div class="project-meta">
+              <span class="project-year-badge">2026</span>
+              <div class="project-links">
+                <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-name">Portfolio Website</h3>
+            <p class="project-desc">Modern portfolio showcasing skills, education, projects, and achievements. Features dark/light theme, smooth navigation, and responsive design. <strong>Result:</strong> 98% Lighthouse score, 100% responsive.</p>
+            <div class="project-tags">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://sarafraj-navaz.github.io/sarafraj-navaz-portfolio/" target="_blank" class="btn-primary">Live Demo <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
           <div class="project-card reveal-item" style="--delay:0s">
             <div class="project-meta">
               <span class="project-year-badge">2025</span>
@@ -447,42 +487,6 @@
               <a href="https://github.com/sarafraj-navaz/sister-wedding-website" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> View Code</a>
             </div>
           </div>
-
-          <div class="project-card reveal-item" style="--delay:0.1s">
-            <div class="project-meta">
-              <span class="project-year-badge">2026</span>
-              <div class="project-links">
-                <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <h3 class="project-name">Portfolio Website</h3>
-            <p class="project-desc">Modern portfolio showcasing skills, education, projects, and achievements. Features dark/light theme, smooth navigation, and responsive design. <strong>Result:</strong> 98% Lighthouse score, 100% responsive.</p>
-            <div class="project-tags">
-              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://sarafraj-navaz.github.io/sarafraj-navaz-portfolio/" target="_blank" class="btn-primary">Live Demo <i class="fas fa-arrow-right"></i></a>
-              <a href="https://github.com/sarafraj-navaz/sarafraj-navaz-portfolio.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> View Code</a>
-            </div>
-          </div>
-
-          <div class="project-card reveal-item" style="--delay:0.2s">
-            <div class="project-meta">
-              <span class="project-year-badge">2023</span>
-              <div class="project-links">
-                <a href="https://github.com/sarafraj-navaz/j-cart-web-app-by-J2EE" target="_blank" class="proj-icon-btn" title="GitHub"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-            <h3 class="project-name">J-Cart Web Application</h3>
-            <p class="project-desc">E-commerce platform with multi-role architecture (admin, owner, user). Features product verification, inventory management, and shopping cart. <strong>Impact:</strong> Reduced manual verification by 60%.</p>
-            <div class="project-tags">
-              <span>Java</span><span>JDBC</span><span>Servlet</span><span>JSP</span><span>MySQL</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/sarafraj-navaz/j-cart-web-app-by-J2EE" target="_blank" class="btn-primary"><i class="fab fa-github"></i> View Code</a>
-            </div>
-          </div>
-
           <div class="project-card reveal-item" style="--delay:0.3s">
             <div class="project-meta">
               <span class="project-year-badge">2023</span>
@@ -625,6 +629,6 @@
   }
   </script>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

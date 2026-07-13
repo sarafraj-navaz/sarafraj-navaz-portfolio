@@ -1,14 +1,3 @@
-// ─── LOADING SCREEN ───
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const loading = document.getElementById('loading');
-    if (loading) loading.classList.add('hidden');
-    revealOnScroll();
-    startTypingAnimation();
-    animateProgressBars();
-  }, 1400);
-});
-
 // ─── CURSOR GLOW ───
 const glow = document.getElementById('cursorGlow');
 if (glow) {
@@ -230,26 +219,24 @@ function updateVisitorCounter() {
 }
 updateVisitorCounter();
 
-// ─── WHATSAPP CLICK TRACKING ───
+// ─── WHATSAPP / EMAIL / RESUME CLICK TRACKING ───
+// Hooks are wired up and ready — plug in Google Analytics (or any
+// analytics provider) inside these handlers when needed.
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
   link.addEventListener('click', () => {
-    console.log('📱 WhatsApp clicked - Contact initiated at ' + new Date().toISOString());
-    // You can add Google Analytics tracking here
+    // e.g. gtag('event', 'whatsapp_click');
   });
 });
 
-// ─── EMAIL CLICK TRACKING ───
 document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
   link.addEventListener('click', () => {
-    console.log('📧 Email clicked - Contact initiated at ' + new Date().toISOString());
-    // You can add Google Analytics tracking here
+    // e.g. gtag('event', 'email_click');
   });
 });
 
-// ─── RESUME DOWNLOAD TRACKING ───
 document.querySelectorAll('.resume-btn, .pdf-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    console.log('📄 Resume/PDF downloaded at ' + new Date().toISOString());
+    // e.g. gtag('event', 'resume_download');
   });
 });
 
@@ -260,37 +247,9 @@ document.querySelectorAll('.skill-item').forEach(item => {
   });
 });
 
-// ─── BANNER ANIMATION ───
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const headline = document.querySelector('.banner-headline');
-    if (headline) {
-      headline.style.opacity = '0';
-      headline.style.transform = 'translateY(12px)';
-      headline.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-      setTimeout(() => {
-        headline.style.opacity = '1';
-        headline.style.transform = 'translateY(0)';
-      }, 300);
-    }
-  }, 1500);
-});
-
-// ─── PRELOADER WITH PROGRESS ───
-let progress = 0;
-const loadFill = document.querySelector('.load-fill');
-if (loadFill) {
-  const interval = setInterval(() => {
-    progress += Math.random() * 15;
-    if (progress >= 100) {
-      progress = 100;
-      clearInterval(interval);
-    }
-    loadFill.style.width = progress + '%';
-  }, 100);
-}
-
-// ─── PRINT FUNCTIONALITY ───
-console.log('🚀 Portfolio loaded — Back & Better in 2026!');
-console.log('📱 WhatsApp: +91 7617809982');
-console.log('📧 Email: sarafrajnavaz.hmfa@gmail.com');
+// ─── INIT ───
+// Script loads with `defer`, so the DOM is already parsed and every
+// element/const above is ready by the time this runs.
+revealOnScroll();
+startTypingAnimation();
+animateProgressBars();

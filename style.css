@@ -1,8 +1,10 @@
-/* ─── FONTS & VARIABLES ─── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
-
+/* ─── FONTS & VARIABLES ───
+   Font stylesheet is loaded via <link> in index.html's <head> —
+   no @import here, since that would fetch it a second time and
+   block CSS parsing until the network round-trip finishes. */
 :root {
   --gold: #ffbf00;
+  --gold-text: var(--gold);
   --gold-dim: #c08800;
   --gold-glow: rgba(255,191,0,0.18);
   --bg: #111111;
@@ -25,6 +27,7 @@
   --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --success-text: #4caf50;
 }
 
 .light-theme {
@@ -39,6 +42,12 @@
   --text3: #999999;
   --health-dim: rgba(200,60,60,0.08);
   --health: #c03c3c;
+  /* Bright gold (#ffbf00) reads great on near-black, but fails contrast
+     as body text on a near-white background. Use a deeper amber for
+     text here while keeping --gold itself bright for borders/buttons/
+     backgrounds, which don't have the same contrast requirement. */
+  --gold-text: #96650a;
+  --success-text: #277a2b;
 }
 
 /* ─── RESET ─── */
@@ -184,7 +193,7 @@ body {
 
 .return-btn {
   background: #111;
-  color: var(--gold);
+  color: var(--gold-text);
   padding: 6px 16px;
   border-radius: 30px;
   text-decoration: none;
@@ -208,48 +217,6 @@ body {
   padding: 0 8px;
 }
 
-/* ─── LOADING ─── */
-.loading {
-  position: fixed;
-  inset: 0;
-  background: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-.loading.hidden { opacity: 0; visibility: hidden; }
-.load-inner { text-align: center; }
-.load-logo {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-  animation: fadeUp 0.6s ease both;
-}
-.load-bar {
-  width: 180px;
-  height: 2px;
-  background: rgba(255,191,0,0.2);
-  border-radius: 2px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-.load-fill {
-  height: 100%;
-  background: var(--gold);
-  border-radius: 2px;
-  animation: loadProgress 1.2s ease forwards;
-}
-.load-text {
-  margin-top: 12px;
-  font-size: 0.75rem;
-  color: var(--text3);
-}
-@keyframes loadProgress { from { width: 0; } to { width: 100%; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ─── LAYOUT ─── */
@@ -320,7 +287,7 @@ body {
 }
 .profile-role {
   font-size: 0.85rem;
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -334,7 +301,7 @@ body {
   font-size: 0.78rem;
   font-weight: 500;
   background: rgba(76,175,80,0.12);
-  color: #4caf50;
+  color: var(--success-text);
   border: 1px solid rgba(76,175,80,0.3);
   padding: 5px 14px;
   border-radius: 20px;
@@ -358,7 +325,7 @@ body {
 }
 .comeback-icon {
   font-size: 1rem;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 8px;
 }
 .comeback-text {
@@ -397,7 +364,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 0.9rem;
   flex-shrink: 0;
 }
@@ -412,7 +379,7 @@ body {
   transition: color var(--transition);
   flex: 1;
 }
-.contact-value:hover { color: var(--gold); }
+.contact-value:hover { color: var(--gold-text); }
 .whatsapp-link {
   display: inline-flex;
   align-items: center;
@@ -434,7 +401,7 @@ body {
   justify-content: center;
 }
 .copy-btn:hover {
-  color: var(--gold);
+  color: var(--gold-text);
   border-color: var(--border-gold);
 }
 
@@ -537,7 +504,7 @@ body {
   background: var(--surface2);
 }
 .social-link:hover {
-  color: var(--gold);
+  color: var(--gold-text);
   border-color: var(--border-gold);
   transform: translateY(-3px);
   box-shadow: 0 6px 16px var(--gold-glow);
@@ -619,7 +586,7 @@ body {
   transition: var(--transition);
 }
 .nav-link:hover { color: var(--text); background: var(--surface2); }
-.nav-link.active { color: var(--gold); background: var(--gold-glow); }
+.nav-link.active { color: var(--gold-text); background: var(--gold-glow); }
 .nav-line {
   height: 1px;
   background: var(--border);
@@ -660,7 +627,7 @@ body {
   font-family: var(--font-display);
   font-size: 6rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--gold-text);
   opacity: 0.07;
   line-height: 1;
   pointer-events: none;
@@ -689,7 +656,7 @@ body {
 }
 .banner-headline em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 400;
 }
 .banner-sub {
@@ -726,7 +693,7 @@ body {
 }
 .narrative-content h4 {
   font-size: 1.1rem;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 10px;
 }
 .narrative-content p {
@@ -771,7 +738,7 @@ body {
 .skills-progress-section h3 {
   font-size: 1.1rem;
   margin-bottom: 20px;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .skill-progress-item {
   display: flex;
@@ -804,7 +771,7 @@ body {
 .progress-percent {
   width: 40px;
   font-size: 0.75rem;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 /* Break Skills */
@@ -818,7 +785,7 @@ body {
 .break-skills h4 {
   font-size: 0.9rem;
   margin-bottom: 12px;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .skill-chips {
   display: flex;
@@ -857,7 +824,7 @@ body {
 }
 .testimonial span {
   font-size: 0.8rem;
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 500;
 }
 
@@ -887,7 +854,7 @@ body {
   line-height: 1;
   margin-bottom: 6px;
 }
-.stat-num.otw { font-size: 1.3rem; color: var(--gold); }
+.stat-num.otw { font-size: 1.3rem; color: var(--gold-text); }
 .stat-unit { font-size: 1rem; }
 .stat-label { font-size: 0.75rem; color: var(--text3); font-weight: 500; letter-spacing: 0.03em; }
 
@@ -1000,7 +967,7 @@ body {
   color: var(--text);
   margin-bottom: 5px;
 }
-.tl-uni { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 6px; }
+.tl-uni { font-size: 0.85rem; color: var(--gold-text); font-weight: 500; margin-bottom: 6px; }
 .health-card .tl-uni { color: var(--health); }
 .tl-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
 .comeback-msg {
@@ -1010,7 +977,7 @@ body {
   font-style: italic;
   color: var(--text2);
 }
-.comeback-icon-sm { color: var(--gold); flex-shrink: 0; }
+.comeback-icon-sm { color: var(--gold-text); flex-shrink: 0; }
 .growth-badges {
   display: flex;
   flex-wrap: wrap;
@@ -1057,7 +1024,7 @@ body {
   font-size: 0.72rem;
   font-weight: 600;
   background: var(--surface3);
-  color: var(--gold);
+  color: var(--gold-text);
   padding: 3px 10px;
   border-radius: 20px;
   border: 1px solid var(--border-gold);
@@ -1077,7 +1044,7 @@ body {
   text-decoration: none;
   transition: var(--transition);
 }
-.proj-icon-btn:hover { color: var(--gold); border-color: var(--border-gold); }
+.proj-icon-btn:hover { color: var(--gold-text); border-color: var(--border-gold); }
 .project-name {
   font-size: 1.1rem;
   font-weight: 600;
@@ -1135,7 +1102,7 @@ body {
   background: transparent;
   transition: var(--transition);
 }
-.btn-ghost:hover { color: var(--gold); border-color: var(--border-gold); }
+.btn-ghost:hover { color: var(--gold-text); border-color: var(--border-gold); }
 
 /* Achievements */
 .achievements-list { display: flex; flex-direction: column; gap: 14px; }
@@ -1180,7 +1147,7 @@ body {
 }
 .cert-card i {
   font-size: 2rem;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 12px;
 }
 .cert-card h3 {
@@ -1197,7 +1164,7 @@ body {
   display: inline-block;
   font-size: 0.7rem;
   background: var(--gold-glow);
-  color: var(--gold);
+  color: var(--gold-text);
   padding: 3px 12px;
   border-radius: 20px;
 }
@@ -1214,7 +1181,7 @@ body {
 .commitment h3 {
   font-size: 1.3rem;
   margin-bottom: 20px;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .commitment-grid {
   display: grid;
@@ -1239,7 +1206,7 @@ footer {
   margin-top: 40px;
 }
 .footer-tag {
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 600;
 }
 .footer-contact {
@@ -1256,7 +1223,7 @@ footer {
   transition: var(--transition);
 }
 .footer-contact a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .last-updated {
   margin-top: 12px;
